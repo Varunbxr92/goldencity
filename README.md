@@ -21,6 +21,7 @@ The tech stack for this one is
 
    - Node
    - NPM
+   - npm install concurrently  (since i faced issue with this dependency while starting the application so it should be installed).
 
 ### Setup and Run the application:
 
