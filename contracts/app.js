@@ -20,6 +20,17 @@ app.use('/api/user', userRouter);
 app.use(fileUpload());
 app.use("", noteRouter);
 
+// Handling 404
+app.use((req,res, next) => {
+res.status(404).json({"error":"Resource Not Found"});
+});
+
+// Handling 500
+app.use((err,req,res, next) => {
+console.err(err.stack);
+res.status(err.status || 500).json({error: err.message || "Internal Server Error"});
+});
+
 // deployment
 __dirname = path.resolve();
 if (process.env.NODE_ENV === "production") {
